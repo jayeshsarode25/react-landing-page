@@ -92,11 +92,11 @@ const CASE_STUDIES = [
 
 const DELIVERABLES = [
   "One highlighted story, shaped around your business",
-  "2–3 hour shoot at our studio or yours",
+  "2–3 hour shoot at our studio",
   "One 20–30 minute long-form video",
   "10–15 short vertical clips, cut for Reels and Shorts",
   "Fully edited, posted on the guest’s own social pages",
-  "Minimum 3 clips built with viral-reach potential",
+  "Minimum 3 reels built with viral-reach potential among 7 reels",
 ];
 
 // Demo time slots for the booking calendar. Swap this for real availability
@@ -635,7 +635,15 @@ function hashString(str) {
   return h;
 }
 
-function slotsFor(iso) {
+function slotsFor(iso, isPriorityDate = false) {
+  if (isPriorityDate) {
+    return SLOT_TIMES.map((time) => ({ time, booked: false }));
+  }
+
+  if (new Date(`${iso}T00:00:00`).getDate() === 29) {
+    return SLOT_TIMES.map((time, index) => ({ time, booked: index === 2 }));
+  }
+
   const h = hashString(iso);
   return SLOT_TIMES.map((time, i) => ({ time, booked: ((h >> (i * 2)) & 3) === 0 }));
 }
@@ -650,26 +658,31 @@ function formatDay(iso) {
 
 function SlotPicker({ date, slot, onChange }) {
   const days = useMemo(() => daysAhead(21), []);
-  const activeSlots = date ? slotsFor(date) : [];
+  const selectedDayIndex = days.findIndex((day) => isoOf(day) === date);
+  const activeSlots = date && selectedDayIndex >= 3 ? slotsFor(date) : [];
 
   return (
     <div className="slotpicker">
       <p className="slotpicker__label">Pick a day</p>
       <div className="slotpicker__days">
-        {days.map((d) => {
+        {days.map((d, index) => {
           const iso = isoOf(d);
           const selected = iso === date;
+          const unavailable = index < 3;
           return (
             <button
               type="button"
               key={iso}
-              className={`slotpicker__day${selected ? " is-selected" : ""}`}
+              className={`slotpicker__day${selected ? " is-selected" : ""}${unavailable ? " is-unavailable" : ""}`}
+              disabled={unavailable}
+              aria-label={`${formatDay(iso)}${unavailable ? ", unavailable" : ", available"}`}
               onClick={() => onChange(iso, "")}
             >
               <span className="slotpicker__day-name">
                 {d.toLocaleDateString("en-US", { weekday: "short" })}
               </span>
               <span className="slotpicker__day-num">{d.getDate()}</span>
+              {unavailable && <span className="slotpicker__day-tag">Book</span>}
             </button>
           );
         })}
@@ -843,7 +856,6 @@ function Booking() {
                   <label htmlFor="guest">I’m joining as</label>
                   <select id="guest" value={form.guest} onChange={update("guest")}>
                     <option>Business owner</option>
-                    <option>Influencer</option>
                   </select>
                 </div>
                 <div className="field field--slot">
@@ -870,6 +882,14 @@ function Booking() {
                       {money(pkg.price)}
                     </motion.span>
                   </div>
+                </div>
+
+                <div className="checkout__value">
+                  <strong>Why ₹10,000?</strong>
+                  <p>
+                    The podcast conversation is free. This payment covers post-production:
+                    editing, all seven reels, and at least three reels built for viral-reach potential.
+                  </p>
                 </div>
 
                 <motion.button
@@ -988,7 +1008,6 @@ function Footer() {
         <nav aria-label="Footer">
           <a href="#">Instagram</a>
           <a href="#">YouTube</a>
-          <a href="#">Spotify</a>
         </nav>
       </div>
     </footer>

@@ -121,6 +121,14 @@ export default function PaymentModal({ amount, packageName, details, sessionLabe
         </header>
 
         <div className="pay__body">
+          <section className="pay__why" aria-labelledby="payment-value-title">
+            <h3 id="payment-value-title">Why ₹10,000?</h3>
+            <p>
+              The podcast conversation is free. This payment covers post-production: editing,
+              all seven reels, and at least three reels built for viral-reach potential.
+            </p>
+          </section>
+
           {mobile ? (
             <>
               <p className="pay__text">Choose your UPI app to pay instantly.</p>

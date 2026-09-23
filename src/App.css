@@ -844,6 +844,20 @@ button {
   background: var(--mist);
 }
 
+.slotpicker__day:disabled,
+.slotpicker__day.is-unavailable {
+  color: var(--gray);
+  background: var(--mist);
+  border-color: var(--line);
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.slotpicker__day:disabled:hover {
+  border-color: var(--line);
+  background: var(--mist);
+}
+
 .slotpicker__day.is-selected {
   color: #fff;
   background: var(--ink);
@@ -860,6 +874,18 @@ button {
 .slotpicker__day-num {
   font-size: clamp(13px, 1.5vw, 16px);
   font-weight: 500;
+}
+
+.slotpicker__day-tag {
+  color: #9a3412;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.slotpicker__day.is-selected .slotpicker__day-tag {
+  color: #fed7aa;
 }
 
 .slotpicker__slots {
@@ -982,6 +1008,26 @@ button {
   line-height: 1.4;
 }
 
+.checkout__value {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  background: var(--mist);
+  border-left: 3px solid var(--ink);
+}
+
+.checkout__value strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.checkout__value p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .success {
   padding: 12px 0;
 }
@@ -1101,6 +1147,26 @@ button {
 
 .pay__body {
   padding: clamp(16px, 3vw, 28px);
+}
+
+.pay__why {
+  margin-bottom: 20px;
+  padding: 14px;
+  background: var(--mist);
+  border-left: 3px solid var(--ink);
+}
+
+.pay__why h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.pay__why p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .pay__text {
