@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 
-const UPI_ID = "9860608317-5@ybl";
+const UPI_ID = "vrushu3553@okicici";
 const BUSINESS_NAME = "Vronix Digital";
 const WHATSAPP_NUMBER = "919822452413";
 
