@@ -1006,8 +1006,8 @@ function Footer() {
       <div className="footer__row">
         <span>© 2026 {SHOW.name}</span>
         <nav aria-label="Footer">
-          <a href="#">Instagram</a>
-          <a href="#">YouTube</a>
+          <a href="https://www.instagram.com/vronixdigital/">Instagram</a>
+          <a href="https://www.youtube.com/@VronixDigital">YouTube</a>
         </nav>
       </div>
     </footer>
