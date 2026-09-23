@@ -1008,6 +1008,7 @@ function Footer() {
         <nav aria-label="Footer">
           <a href="https://www.instagram.com/vronixdigital/">Instagram</a>
           <a href="https://www.youtube.com/@VronixDigital">YouTube</a>
+          <a href="https://open.spotify.com/user/31fmril63lddctz2exvrwybbwwxi">Spotify</a>
         </nav>
       </div>
     </footer>
