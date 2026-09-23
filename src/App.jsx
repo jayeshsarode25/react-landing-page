@@ -606,6 +606,51 @@ function CaseStudies() {
   );
 }
 
+function WhyBuyNow() {
+  const reasons = [
+    {
+      label: "Feature article",
+      title: "Give your story a proper front page.",
+      copy: "Turn your experience, point of view, and business journey into a conversation people can discover and remember.",
+    },
+    {
+      label: "Blog",
+      title: "Keep publishing after the mic is off.",
+      copy: "One recording becomes a steady source of ideas for posts, captions, show notes, and the next story your audience wants to read.",
+    },
+    {
+      label: "Functionality opportunity",
+      title: "Make attention useful.",
+      copy: "Connect every episode to your offer, profile, and contact details so interest has a clear next step for your business.",
+    },
+  ];
+
+  return (
+    <section className="section why-now" id="why-buy-now">
+      <div className="why-now__head">
+        <p className="statement__label">A smart time to be heard</p>
+        <ScrollRevealTitle className="why-now__title">
+          Why buy now?
+        </ScrollRevealTitle>
+        <p className="lede">
+          Your next conversation can do more than fill a feed. It can become an asset your business keeps using.
+        </p>
+      </div>
+
+      <div className="why-now__grid">
+        {reasons.map((reason, index) => (
+          <article className="why-now__card" key={reason.label}>
+            <span className="why-now__number">0{index + 1}</span>
+            <p className="why-now__label">{reason.label}</p>
+            <h3>{reason.title}</h3>
+            <p className="why-now__copy">{reason.copy}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 /* Slot picker (demo availability calendar)                            */
 /* ------------------------------------------------------------------ */
@@ -1033,6 +1078,7 @@ export default function App() {
         <Feature />
         <About />
         <CaseStudies />
+        <WhyBuyNow />
         <Booking />
         <Faq />
       </main>

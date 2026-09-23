@@ -613,6 +613,81 @@ button {
   background: #fff;
 }
 
+/* Why buy now                                                        */
+.why-now {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(28px, 6vw, 100px);
+  align-items: start;
+  background: #fff;
+}
+
+.why-now__head {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  justify-items: center;
+  text-align: center;
+}
+
+.why-now__head .statement__label {
+  margin: 0;
+}
+
+.why-now__title {
+  max-width: 7ch;
+  color: #3f3f3f;
+}
+
+.why-now__head .lede {
+  max-width: 23em;
+  margin-inline: auto;
+}
+
+.why-now__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.why-now__card {
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+  padding: clamp(20px, 2.5vw, 32px);
+  background: #fff;
+  border-top: 3px solid var(--ink);
+  border-radius: 0 0 16px 16px;
+}
+
+.why-now__number {
+  font-family: var(--display);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.why-now__label {
+  margin: 38px 0 14px;
+  color: var(--muted);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.why-now__card h3 {
+  margin: 0;
+  font-size: clamp(24px, 2.2vw, 34px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.why-now__copy {
+  margin-top: auto;
+  padding-top: 24px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 /* ------------------------------------------------------------------ */
 /* Booking - IMPROVED RESPONSIVE                                      */
 /* ------------------------------------------------------------------ */
@@ -1405,6 +1480,15 @@ button {
     display: block;
   }
 
+  .why-now {
+    display: block;
+  }
+
+  .why-now__head {
+    max-width: 42em;
+    margin-bottom: clamp(32px, 4vw, 64px);
+  }
+
   .cases__head {
     margin-bottom: clamp(32px, 4vw, 64px);
   }
@@ -1496,6 +1580,14 @@ button {
   .carousel-item {
     width: 180px;
     height: 240px;
+  }
+
+  .why-now__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-now__card {
+    min-height: 0;
   }
 
   .hero {
