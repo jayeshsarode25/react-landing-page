@@ -1373,6 +1373,56 @@ button {
   font-size: clamp(12px, 1vw, 14px);
 }
 
+/* Lead capture modal */
+.lead-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.lead-modal__dialog {
+  position: relative;
+  width: min(100%, 460px);
+  padding: clamp(24px, 5vw, 40px);
+  color: #141414;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.45);
+  pointer-events: auto;
+}
+
+.lead-modal__eyebrow {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lead-modal__dialog h2 {
+  margin: 0;
+  color: #141414;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.lead-modal__intro {
+  margin: 12px 0 24px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.lead-modal__dialog .btn {
+  margin-top: 4px;
+}
+
 /* ------------------------------------------------------------------ */
 /* FAQ                                                                 */
 /* ------------------------------------------------------------------ */
